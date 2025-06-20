@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://duouw8d5wjgj8"]
+[gd_scene load_steps=8 format=3 uid="uid://duouw8d5wjgj8"]
 
 [ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="1_1jxqw"]
+[ext_resource type="Script" uid="uid://db67qyyqilqw8" path="res://player.gd" id="1_dw050"]
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="3_b26j0"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_n7ghd"]
 
 [node name="player" type="XROrigin3D"]
+script = ExtResource("1_dw050")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 

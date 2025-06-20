@@ -229,3 +229,7 @@ func _update_target() -> void:
 	# Use first target override if specified
 	if _target_overrides.size():
 		_target = _target_overrides[0].target
+
+
+func _on_left_hand_hand_scale_changed(scale: Variant) -> void:
+	pass # Replace with function body.
