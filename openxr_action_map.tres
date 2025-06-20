@@ -1,4 +1,6 @@
-[gd_resource type="OpenXRActionMap" load_steps=372 format=3 uid="uid://dsy7663pl3py3"]
+[gd_resource type="OpenXRActionMap" load_steps=374 format=3 uid="uid://dsy7663pl3py3"]
+
+[ext_resource type="OpenXRHapticVibration" uid="uid://dtrhf4hxmkqli" path="res://haptic_vibration.tres" id="1_vfhwq"]
 
 [sub_resource type="OpenXRAction" id="OpenXRAction_35itf"]
 resource_name = "trigger"
@@ -1126,9 +1128,13 @@ binding_path = "/user/hand/left/input/thumbstick/touch"
 action = SubResource("OpenXRAction_kklxr")
 binding_path = "/user/hand/right/input/thumbstick/touch"
 
+[sub_resource type="OpenXRAnalogThresholdModifier" id="OpenXRAnalogThresholdModifier_5w03k"]
+on_haptic = ExtResource("1_vfhwq")
+
 [sub_resource type="OpenXRIPBinding" id="OpenXRIPBinding_0x121"]
 action = SubResource("OpenXRAction_j8j65")
 binding_path = "/user/hand/left/output/haptic"
+binding_modifiers = [SubResource("OpenXRAnalogThresholdModifier_5w03k")]
 
 [sub_resource type="OpenXRIPBinding" id="OpenXRIPBinding_pxanv"]
 action = SubResource("OpenXRAction_j8j65")
