@@ -54,6 +54,7 @@ var _current_refresh_rate : float = 0
 
 # Handle auto-initialization when ready
 func _ready() -> void:
+	#await get_tree().create_timer(10).timeout
 	if !Engine.is_editor_hint() and auto_initialize:
 		initialize()
 
