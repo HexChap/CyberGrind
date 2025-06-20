@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://duouw8d5wjgj8"]
+[gd_scene load_steps=7 format=3 uid="uid://duouw8d5wjgj8"]
 
 [ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="1_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="3_b26j0"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="5_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_n7ghd"]
 
@@ -22,9 +23,26 @@ rotation_action = ""
 player_height = 0.9
 player_radius = 0.2
 
+[node name="FunctionPointer" parent="LeftHand/CollisionHandLeft" instance=ExtResource("3_b26j0")]
+active_button_action = "ax_button"
+show_laser = 2
+laser_length = 1
+show_target = true
+
 [node name="RightHand" type="XRController3D" parent="."]
 tracker = &"right_hand"
 
 [node name="RightHand" parent="RightHand" instance=ExtResource("2_i3pqv")]
+
+[node name="FunctionTeleport" parent="RightHand" instance=ExtResource("5_1jxqw")]
+rotation_action = ""
+player_height = 0.9
+player_radius = 0.2
+
+[node name="FunctionPointer" parent="RightHand" instance=ExtResource("3_b26j0")]
+active_button_action = "ax_button"
+show_laser = 2
+laser_length = 1
+show_target = true
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_n7ghd")]

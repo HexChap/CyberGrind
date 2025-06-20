@@ -1,0 +1,157 @@
+[gd_scene load_steps=10 format=3 uid="uid://8u0slmhmd5vy"]
+
+[ext_resource type="Shader" uid="uid://dt7qy4m0d2fjc" path="res://shaders/wobbli_border.gdshader" id="1_c784n"]
+[ext_resource type="Texture2D" uid="uid://dpq7qtkr5a34l" path="res://shaders/noise.jpg" id="2_3fb3l"]
+[ext_resource type="FontFile" uid="uid://28li0fdub82g" path="res://fonts/3270-Regular.ttf" id="2_j4vu4"]
+[ext_resource type="Shader" uid="uid://cut0cohchojkq" path="res://shaders/tv_screen.gdshader" id="4_3fb3l"]
+[ext_resource type="Script" uid="uid://lo5rtx22vbw5" path="res://objects/main_menu/play.gd" id="4_t86u3"]
+[ext_resource type="Script" uid="uid://dlje17qsscdyj" path="res://objects/main_menu/quit.gd" id="5_eofqm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c784n"]
+shader = ExtResource("1_c784n")
+shader_parameter/textureNoise = ExtResource("2_3fb3l")
+shader_parameter/radius = 0.425
+shader_parameter/effectControl = 0.14
+shader_parameter/burnSpeed = 0.105
+shader_parameter/shape = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxicu"]
+bg_color = Color(0.103744, 0.103744, 0.103743, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxicu"]
+shader = ExtResource("4_3fb3l")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.05
+shader_parameter/scanlines_width = 0.05
+shader_parameter/grille_opacity = 0.232
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.45
+shader_parameter/roll_size = 4.928
+shader_parameter/roll_variation = 1.695
+shader_parameter/distort_intensity = 0.035
+shader_parameter/noise_opacity = 0.1
+shader_parameter/noise_speed = 1.655
+shader_parameter/static_noise_intensity = 0.01
+shader_parameter/aberration = 0.00500005
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = true
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.0
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="wobbli_shaders" type="CanvasLayer" parent="."]
+layer = 68
+follow_viewport_enabled = true
+follow_viewport_scale = 40.98
+
+[node name="wobbli_shader" type="ColorRect" parent="wobbli_shaders"]
+material = SubResource("ShaderMaterial_c784n")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.313726, 0.278431, 0.529412, 0)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.172549, 0.156863, 0.447059, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect3"]
+visibility_layer = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect3/CenterContainer"]
+visibility_layer = 2
+layout_mode = 2
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="Play" type="Button" parent="ColorRect3/CenterContainer/VBoxContainer"]
+visibility_layer = 2
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_j4vu4")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_kxicu")
+text = "PLAY"
+script = ExtResource("4_t86u3")
+
+[node name="Settings" type="Button" parent="ColorRect3/CenterContainer/VBoxContainer"]
+visibility_layer = 2
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_j4vu4")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_kxicu")
+text = "Settings"
+
+[node name="quit" type="Button" parent="ColorRect3/CenterContainer/VBoxContainer"]
+visibility_layer = 2
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_j4vu4")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_kxicu")
+text = "Quit"
+script = ExtResource("5_eofqm")
+
+[node name="tv_shader" type="CanvasLayer" parent="."]
+layer = 23
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="tv_shader"]
+material = SubResource("ShaderMaterial_kxicu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 12.0
+offset_right = -2.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[connection signal="pressed" from="ColorRect3/CenterContainer/VBoxContainer/Play" to="ColorRect3/CenterContainer/VBoxContainer/Play" method="play"]
+[connection signal="pressed" from="ColorRect3/CenterContainer/VBoxContainer/quit" to="ColorRect3/CenterContainer/VBoxContainer/quit" method="quit"]
