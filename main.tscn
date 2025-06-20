@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://jtyv2lla0ofe"]
+[gd_scene load_steps=8 format=3 uid="uid://jtyv2lla0ofe"]
 
 [ext_resource type="PackedScene" uid="uid://duouw8d5wjgj8" path="res://player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="4_7mycd"]
@@ -15,6 +15,11 @@ background_mode = 2
 sky = SubResource("Sky_h2yge")
 tonemap_mode = 2
 
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
+size = Vector3(1.00397, 1, 1)
+
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -27,3 +32,14 @@ shadow_enabled = true
 [node name="StartXR" parent="." instance=ExtResource("4_7mycd")]
 
 [node name="player" parent="." instance=ExtResource("2_0xm2m")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(42.5285, 0, 0, 0, 4.94752, 0, 0, 0, 69.9939, 0, -9.48138, -4.98135)
+mesh = SubResource("BoxMesh_0xm2m")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(42.5285, 0, 0, 0, 4.94752, 0, 0, 0, 69.9939, 0.0843614, -9.48138, -4.98135)
+shape = SubResource("BoxShape3D_0xm2m")

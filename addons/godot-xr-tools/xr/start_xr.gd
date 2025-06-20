@@ -57,6 +57,7 @@ func _ready() -> void:
 	#await get_tree().create_timer(10).timeout
 	if !Engine.is_editor_hint() and auto_initialize:
 		initialize()
+	xr_active = true
 
 
 ## Initialize the XR interface
@@ -64,6 +65,7 @@ func initialize() -> bool:
 	# Check for OpenXR interface
 	xr_interface = XRServer.find_interface('OpenXR')
 	if xr_interface:
+		print("OpenXR: befor Configuring interface")
 		return _setup_for_openxr()
 
 	# Check for WebXR interface
