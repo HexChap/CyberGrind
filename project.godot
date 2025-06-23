@@ -27,6 +27,10 @@ Draw3d="*res://components/helpers/Draw3D.gd"
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[global_group]
+
+xr_controller=""
+
 [godot_xr_tools]
 
 input/default_snap_turning=false
