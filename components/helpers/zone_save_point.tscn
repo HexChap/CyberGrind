@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dm2e4qfiy0v0a"]
 
-[ext_resource type="Script" path="res://components/helpers/zone_save_point.gd" id="1_hwwjp"]
+[ext_resource type="Script" uid="uid://0xrxmr7ps6e5" path="res://components/helpers/zone_save_point.gd" id="1_hwwjp"]
 [ext_resource type="Texture2D" uid="uid://b28f4me1ublg4" path="res://assets/prototype_materials/pattern.png" id="2_2gaip"]
 [ext_resource type="Material" uid="uid://c386ygo86nqfc" path="res://assets/prototype_materials/wood_brown.tres" id="3_nemau"]
 [ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="4_8b5h5"]

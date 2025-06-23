@@ -95,6 +95,8 @@ func _setup_for_openxr() -> bool:
 	if "render_target_size_multiplier" in xr_interface:
 		xr_interface.render_target_size_multiplier = render_target_size_multiplier
 
+	XRServer.primary_interface = xr_interface
+
 	# Initialize the OpenXR interface
 	if not xr_interface.is_initialized():
 		print("OpenXR: Initializing interface")

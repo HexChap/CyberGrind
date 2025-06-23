@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c2u2yasyfotxr" path="res://components/persistent/persistent_staging.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://bkvj83shnbfwl" path="res://assets/splash/splash.png" id="2"]
-[ext_resource type="Script" path="res://game/main.gd" id="2_dmefr"]
+[ext_resource type="Script" uid="uid://bbr6r34ejwpgw" path="res://game/main.gd" id="2_dmefr"]
 
 [node name="Main" instance=ExtResource("1")]
 script = ExtResource("2_dmefr")
