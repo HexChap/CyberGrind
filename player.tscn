@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://duouw8d5wjgj8"]
+[gd_scene load_steps=9 format=3 uid="uid://duouw8d5wjgj8"]
 
 [ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="1_1jxqw"]
 [ext_resource type="Script" uid="uid://db67qyyqilqw8" path="res://player.gd" id="1_dw050"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="3_b26j0"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="5_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_n7ghd"]
+[ext_resource type="PackedScene" uid="uid://wtpox7m5vu2b" path="res://addons/godot-xr-tools/effects/fade.tscn" id="8_b26j0"]
 
 [node name="player" type="XROrigin3D"]
 script = ExtResource("1_dw050")
@@ -48,3 +49,5 @@ laser_length = 1
 show_target = true
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_n7ghd")]
+
+[node name="Fade" parent="." instance=ExtResource("8_b26j0")]

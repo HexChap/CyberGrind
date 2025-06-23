@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://kcuw3xifo2gh"]
+
+[ext_resource type="Script" uid="uid://bvkx3lb3t86q8" path="res://static_state/game_state.gd" id="1_0qax4"]
+
+[node name="GameState" type="Node2D"]
+script = ExtResource("1_0qax4")
+MAIN_MENU_TSCN = "uid://jtyv2lla0ofe"
