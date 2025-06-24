@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://chch4r7wddwdj" path="res://game/objects/storage/storage_box.tscn" id="13_galon"]
 [ext_resource type="PackedScene" uid="uid://dbepe4i2q62yy" path="res://game/items/crate/crate.tscn" id="13_mtgv7"]
 [ext_resource type="PackedScene" uid="uid://c33bpwxnrb0gr" path="res://game/items/toolbox/toolbox.tscn" id="14_68l3l"]
-[ext_resource type="PackedScene" uid="uid://d2qp846qqmj8p" path="res://game/items/minigames/vulnerability_anlysis/area/analysis_area.tscn" id="15_vljgg"]
+[ext_resource type="PackedScene" uid="uid://d2qp846qqmj8p" path="res://game/items/minigames/vulnerability_anlysis/analysis_area.tscn" id="15_vljgg"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vljgg"]
 animation = &"Grip"
