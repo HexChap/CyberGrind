@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2ojgbyt0munx"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_yxj4v"]
+[ext_resource type="PackedScene" uid="uid://bqm5aef0up60b" path="res://game/items/minigames/sudoku/sudoku_background.tscn" id="2_af2ja"]
+[ext_resource type="FontFile" uid="uid://b25m8i3cgcwqf" path="res://fonts/3270Condensed-Regular.ttf" id="3_oimqo"]
+
+[node name="Sudoku" type="Node3D"]
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_yxj4v")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+scene = ExtResource("2_af2ja")
+viewport_size = Vector2(900, 600)
+transparent = 0
+unshaded = true
+scene_properties_keys = PackedStringArray()
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.223, -0.386639, 0.178513)
+text = "3 million beers"
+font = ExtResource("3_oimqo")
