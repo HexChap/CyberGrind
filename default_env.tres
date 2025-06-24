@@ -9,3 +9,5 @@ sky_material = SubResource("ProceduralSkyMaterial_qmfyt")
 background_mode = 2
 sky = SubResource("1")
 sky_rotation = Vector3(0, 2.35619, 0)
+glow_enabled = true
+glow_bloom = 0.15
