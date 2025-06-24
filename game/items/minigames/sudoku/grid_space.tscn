@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ym8eac0qtvqd"]
+
+[ext_resource type="FontFile" uid="uid://crcra3lurcixa" path="res://fonts/3270SemiCondensed-Regular.ttf" id="1_o7ynx"]
+[ext_resource type="Script" uid="uid://bo6d6t0le0efg" path="res://game/items/minigames/sudoku/grid_space.gd" id="1_sala7"]
+
+[sub_resource type="Gradient" id="Gradient_sala7"]
+offsets = PackedFloat32Array(0, 0.480519, 1)
+colors = PackedColorArray(0.132, 0.0887858, 0.173769, 1, 0.353459, 0.142375, 0.516553, 1, 0.345759, 0.209087, 0.448219, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2pl7m"]
+gradient = SubResource("Gradient_sala7")
+width = 70
+height = 70
+fill_from = Vector2(0.0779817, 1)
+
+[node name="GridSpace" type="Node3D"]
+script = ExtResource("1_sala7")
+tilt_strength = 0.3
+max_tilt_angle_deg = 50.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005059, -5.96046e-08, -3.12328e-05)
+texture = SubResource("GradientTexture2D_2pl7m")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+text = "00"
+font = ExtResource("1_o7ynx")
+font_size = 100

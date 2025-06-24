@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2ojgbyt0munx"]
+[gd_scene load_steps=6 format=3 uid="uid://c2ojgbyt0munx"]
 
+[ext_resource type="Script" uid="uid://de2ec2wvt3rfp" path="res://game/items/minigames/sudoku/sudoku.gd" id="1_skxa3"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_yxj4v"]
 [ext_resource type="PackedScene" uid="uid://bqm5aef0up60b" path="res://game/items/minigames/sudoku/sudoku_background.tscn" id="2_af2ja"]
 [ext_resource type="FontFile" uid="uid://b25m8i3cgcwqf" path="res://fonts/3270Condensed-Regular.ttf" id="3_oimqo"]
+[ext_resource type="PackedScene" uid="uid://ym8eac0qtvqd" path="res://game/items/minigames/sudoku/grid_space.tscn" id="4_1a4xh"]
 
 [node name="Sudoku" type="Node3D"]
+script = ExtResource("1_skxa3")
 
 [node name="Viewport2Din3D" parent="." instance=ExtResource("1_yxj4v")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -15,6 +18,54 @@ unshaded = true
 scene_properties_keys = PackedStringArray()
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.223, -0.386639, 0.178513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22844, -0.392212, 0.180089)
 text = "3 million beers"
 font = ExtResource("3_oimqo")
+
+[node name="GridSpace" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.639595, 1.47804, 0.2)
+
+[node name="GridSpace2" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.360405, 1.47804, 0.2)
+
+[node name="GridSpace3" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36041, 1.47804, 0.2)
+
+[node name="GridSpace4" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36041, 1.47804, 0.2)
+
+[node name="GridSpace5" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.639595, 0.478043, 0.2)
+
+[node name="GridSpace6" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.360405, 0.478043, 0.2)
+
+[node name="GridSpace7" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36041, 0.478043, 0.2)
+
+[node name="GridSpace8" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36041, 0.478043, 0.2)
+
+[node name="GridSpace9" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.639595, -0.521957, 0.2)
+
+[node name="GridSpace10" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.360405, -0.521957, 0.2)
+
+[node name="GridSpace11" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36041, -0.521957, 0.2)
+
+[node name="GridSpace12" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36041, -0.521957, 0.2)
+
+[node name="GridSpace13" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.639595, -1.52196, 0.2)
+
+[node name="GridSpace14" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.360405, -1.52196, 0.2)
+
+[node name="GridSpace15" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36041, -1.52196, 0.2)
+
+[node name="GridSpace16" parent="." instance=ExtResource("4_1a4xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36041, -1.52196, 0.2)
