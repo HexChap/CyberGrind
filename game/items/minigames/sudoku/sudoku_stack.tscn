@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt723ym58i848"]
+[gd_scene load_steps=6 format=3 uid="uid://dt723ym58i848"]
 
 [ext_resource type="Script" uid="uid://csg5elmqxf8q6" path="res://game/items/minigames/sudoku/sudoku_stack.gd" id="1_mp3dg"]
+[ext_resource type="FontFile" uid="uid://28li0fdub82g" path="res://fonts/3270-Regular.ttf" id="2_7aol3"]
 [ext_resource type="Script" uid="uid://bbeq0hdytcmm" path="res://game/items/minigames/sudoku/sudoku_stack_label.gd" id="2_ybk7s"]
 
 [sub_resource type="Gradient" id="Gradient_5h2jp"]
@@ -35,8 +36,9 @@ font_size = 64
 outline_size = 0
 
 [node name="middle_value" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.15)
 text = "00"
+font = ExtResource("2_7aol3")
 font_size = 48
 outline_size = 0
 script = ExtResource("2_ybk7s")

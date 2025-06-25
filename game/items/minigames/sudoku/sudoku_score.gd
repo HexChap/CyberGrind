@@ -1,30 +1,11 @@
 extends Node3D
 
-@onready var area := $Area3D
-@export var coord := { "x": 0, "y": 0 } 
 @export var tilt_strength := 0.4 
 @export var max_tilt_angle_deg := 60.0  # Max angle to tilt toward camera
 var camera: Camera3D
 var rest_forward := Vector3.ZERO
 
-func _on_body_entered(body):
-	if body is XRToolsCollisionHand:
-		print("Body entered")
-		body.get_parent().hand_grabbed.connect(_on_controller_grabbed)
-
-func _on_body_exited(body):
-	if body is XRToolsCollisionHand:
-		print("Body exited")
-		body.get_parent().hand_grabbed.disconnect(_on_controller_grabbed)
-
-func _on_controller_grabbed(_xr_controller):
-	print("Played")
-	var sudoku_node = get_tree().get_nodes_in_group("SudokuRoot")[0]
-	sudoku_node.play_sudoku(coord.x, coord.y)
-
 func _ready():
-	area.body_entered.connect(_on_body_entered)
-	area.body_exited.connect(_on_body_exited)
 	camera = get_viewport().get_camera_3d()
 	rest_forward = (-global_transform.basis.z).normalized()
 
