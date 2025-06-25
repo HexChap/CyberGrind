@@ -12,6 +12,8 @@ extends PersistentStaging
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super()
+	var timer_scene = preload("res://game/VRTimerGUI.gd")
+	
 
 	# Do not initialise if in the editor
 	if Engine.is_editor_hint():

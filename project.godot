@@ -77,4 +77,5 @@ environment/defaults/default_environment="res://default_env.tres"
 [xr]
 
 openxr/enabled=true
+openxr/startup_alert=false
 shaders/enabled=true
