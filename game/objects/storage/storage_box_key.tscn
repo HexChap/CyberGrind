@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bphh67bwstao2"]
+
+[ext_resource type="PackedScene" uid="uid://drc02f0wuae6e" path="res://game/objects/storage/boxed_storage.tscn" id="1_5h11g"]
+[ext_resource type="PackedScene" uid="uid://qmejywplaagw" path="res://components/persistent/persistent_pocket.tscn" id="2_57vb8"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="3_qaxxm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s7ybo"]
+size = Vector3(1, 0.5, 0.5)
+
+[node name="StorageBox" type="StaticBody3D"]
+
+[node name="BoxedStorage" parent="." instance=ExtResource("1_5h11g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.285283, 0, 0, 0, 0.904853, 0, 0, 0, 0.494515, 0.00777626, 0.25, 0)
+shape = SubResource("BoxShape3D_s7ybo")
+
+[node name="PersistentPocket6" parent="." instance=ExtResource("2_57vb8")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.00218366, 0.250629, 0.117258)
+pocket_id = "storage_slot_6"
+held_behavior = 0
+grab_distance = 0.1
+snap_require = "fits_in_storage"
+
+[node name="HighlightRing" parent="PersistentPocket6" instance=ExtResource("3_qaxxm")]
