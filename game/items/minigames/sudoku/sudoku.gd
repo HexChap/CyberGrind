@@ -1,18 +1,42 @@
 extends Node3D
 
+@onready var game_timer = $Timer
 @export var percent_empty = 0.6;
+@export var time = 0;
+@export var score = 0;
+@export var rollbacks = 0;
+@export var game_over: bool = false;
 @export var grid: Array;
 @export var grid_stack: Array;
+@export var traceback: Array[Array];
 
 func _ready():
 	add_to_group("SudokuRoot")
-	_regenerate()
-	for row in grid:
-		print(row)
+	
+	game_timer.wait_time = 1.0
+	start_game(120, 3)
+	
 
 
 func _process(delta):
 	pass
+
+func start_game(_time: int, _rollbacks: int) -> void:
+	_regenerate()
+	time = _time
+	rollbacks = _rollbacks
+	game_over = false;
+	game_timer.start()
+	for row in grid:
+		print(row)
+	return
+
+func _on_GameTimer_timeout():
+	time -= 1
+	print("second")
+	if time <= 0:
+		game_timer.stop()
+		game_over = true
 
 func remove_random_slots(percent: float, grid: Array) -> void:
 	var size := grid.size()
@@ -43,7 +67,21 @@ func play_sudoku(x: int, y: int) -> bool:
 	if _check_if_softlocked():
 		_regenerate()
 	
+	traceback.append([x, y, grid_stack[0]])
+	
 	print(grid_stack)
+	return true
+
+func backtrack() -> bool:
+	if rollbacks == 0:
+		return false
+	if traceback.size() == 0:
+		return false
+	var last_operation: Array = traceback.front();
+	traceback.pop_front()
+	grid[last_operation[0]][last_operation[1]] = last_operation[2]
+	rollbacks -= 1
+	
 	return true
 
 func _generate_diagonal_arr() -> Array:

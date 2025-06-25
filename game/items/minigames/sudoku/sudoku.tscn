@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2ojgbyt0munx"]
+[gd_scene load_steps=10 format=3 uid="uid://c2ojgbyt0munx"]
 
 [ext_resource type="Script" uid="uid://de2ec2wvt3rfp" path="res://game/items/minigames/sudoku/sudoku.gd" id="1_skxa3"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_yxj4v"]
@@ -6,6 +6,9 @@
 [ext_resource type="FontFile" uid="uid://b25m8i3cgcwqf" path="res://fonts/3270Condensed-Regular.ttf" id="3_oimqo"]
 [ext_resource type="PackedScene" uid="uid://ym8eac0qtvqd" path="res://game/items/minigames/sudoku/grid_space.tscn" id="4_1a4xh"]
 [ext_resource type="PackedScene" uid="uid://dt723ym58i848" path="res://game/items/minigames/sudoku/sudoku_stack.tscn" id="6_vtcsp"]
+[ext_resource type="PackedScene" uid="uid://qlkp3if37ucu" path="res://game/items/minigames/sudoku/sudoku_timer.tscn" id="7_1ltev"]
+[ext_resource type="PackedScene" uid="uid://cgdd5x47xkxv0" path="res://game/items/minigames/sudoku/sudoku_back.tscn" id="8_84rf8"]
+[ext_resource type="PackedScene" uid="uid://chkfepmrbybb2" path="res://game/items/minigames/sudoku/sudoku_score.tscn" id="9_hbb8m"]
 
 [node name="Sudoku" type="Node3D"]
 script = ExtResource("1_skxa3")
@@ -145,3 +148,16 @@ y_coord = 1
 
 [node name="SudokuStack3" parent="stack" instance=ExtResource("6_vtcsp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83933, 1.49222, 0.2)
+
+[node name="sudoku_timer" parent="." instance=ExtResource("7_1ltev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.275, -1.555, 0.2)
+
+[node name="SudokuBack" parent="." instance=ExtResource("8_84rf8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, -0.9, 0.2)
+
+[node name="SudokuScore" parent="." instance=ExtResource("9_hbb8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97, -0.9, 0.2)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_GameTimer_timeout"]
