@@ -24,9 +24,17 @@ XrSimulator="*res://addons/xr-simulator/XRSimulator.tscn"
 Draw3d="*res://components/helpers/Draw3D.gd"
 Line3d="*res://addons/godot-polyliner/Line3D/Line3D.gd"
 
+[debug]
+
+shapes/collision/shape_color=Color(0.918637, 6.72868e-05, 0.703254, 1)
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [global_group]
 

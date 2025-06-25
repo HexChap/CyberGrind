@@ -1,6 +1,7 @@
 @tool
 class_name PersistentPocket
 extends XRToolsSnapZone
+signal item_added(item)
 
 
 ## Persistent Pocket Node
@@ -44,6 +45,8 @@ func is_xr_class(p_name : String) -> bool:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super()
+	if has_signal("key"):  # Replace with actual base signal name if known
+		connect("object_picked_up", Callable(self, "_on_object_picked_up"))
 
 	# Skip initialization if in editor
 	if Engine.is_editor_hint():
@@ -147,6 +150,9 @@ func _populate_pocket() -> void:
 func _on_picked_up(_pickable) -> void:
 	_update_held_behavior()
 
+func _on_object_picked_up(item: Node) -> void:
+	if item is PersistentItem:
+		emit_signal("item_added", item)
 
 # Called when the parent pickable body is dropped
 func _on_dropped(_pickable) -> void:

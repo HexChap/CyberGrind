@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PersistentZoneInfo" load_steps=2 format=3 uid="uid://cynkb2lyf8qji"]
+
+[ext_resource type="Script" uid="uid://7scii7vhntp5" path="res://components/persistent/persistent_zone_info.gd" id="1_l66yl"]
+
+[resource]
+script = ExtResource("1_l66yl")
+zone_id = "zone_minigame"
+instance_scene = "uid://cdm6ni4sfj1vx"
+metadata/_custom_type_script = "uid://7scii7vhntp5"

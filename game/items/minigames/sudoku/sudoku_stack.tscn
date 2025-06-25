@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt723ym58i848"]
+
+[ext_resource type="Script" uid="uid://csg5elmqxf8q6" path="res://game/items/minigames/sudoku/sudoku_stack.gd" id="1_mp3dg"]
+[ext_resource type="Script" uid="uid://bbeq0hdytcmm" path="res://game/items/minigames/sudoku/sudoku_stack_label.gd" id="2_ybk7s"]
+
+[sub_resource type="Gradient" id="Gradient_5h2jp"]
+offsets = PackedFloat32Array(0, 0.532468, 1)
+colors = PackedColorArray(0.24217, 0.0547475, 0.233268, 1, 0.375301, 0.0791417, 0.244399, 1, 0.518546, 0.0184571, 0.513955, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mp3dg"]
+gradient = SubResource("Gradient_5h2jp")
+width = 48
+height = 48
+fill_from = Vector2(0.522936, 1)
+fill_to = Vector2(0.509174, 0)
+
+[node name="SudokuStack" type="Node3D"]
+script = ExtResource("1_mp3dg")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("GradientTexture2D_mp3dg")
+
+[node name="left_arrow" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.1)
+modulate = Color(0.718399, 0.193282, 0.865164, 1)
+text = "↑"
+font_size = 64
+outline_size = 0
+
+[node name="right_arrow" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.1)
+modulate = Color(0.718399, 0.193282, 0.865164, 1)
+text = "↑"
+font_size = 64
+outline_size = 0
+
+[node name="middle_value" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+text = "00"
+font_size = 48
+outline_size = 0
+script = ExtResource("2_ybk7s")
