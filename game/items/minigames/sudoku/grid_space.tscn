@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ym8eac0qtvqd"]
+[gd_scene load_steps=5 format=3 uid="uid://ym8eac0qtvqd"]
 
 [ext_resource type="FontFile" uid="uid://crcra3lurcixa" path="res://fonts/3270SemiCondensed-Regular.ttf" id="1_o7ynx"]
 [ext_resource type="Script" uid="uid://bo6d6t0le0efg" path="res://game/items/minigames/sudoku/grid_space.gd" id="1_sala7"]
-[ext_resource type="Script" uid="uid://b68crhkynobtl" path="res://game/items/minigames/sudoku/grid_space_label.gd" id="3_2pl7m"]
 
 [sub_resource type="Gradient" id="Gradient_sala7"]
 offsets = PackedFloat32Array(0, 0.480519, 1)
@@ -13,9 +12,6 @@ gradient = SubResource("Gradient_sala7")
 width = 70
 height = 70
 fill_from = Vector2(0.0779817, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2pl7m"]
-size = Vector3(0.5, 0.5, 0.5)
 
 [node name="GridSpace" type="Node3D"]
 script = ExtResource("1_sala7")
@@ -31,12 +27,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 text = "00"
 font = ExtResource("1_o7ynx")
 font_size = 100
-script = ExtResource("3_2pl7m")
-
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0885606)
-collision_layer = 8323327
-collision_mask = 8323327
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_2pl7m")
