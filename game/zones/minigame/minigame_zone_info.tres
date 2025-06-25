@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_l66yl")
-zone_id = "zone_minigame"
+zone_id = "minigame_zone"
 instance_scene = "uid://cdm6ni4sfj1vx"
 metadata/_custom_type_script = "uid://7scii7vhntp5"

@@ -191,7 +191,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 
 [node name="ToMinigameLoc" parent="." index="4" instance=ExtResource("9_sdx6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00608587, -2.38419e-07, -3.25766)
-zone_scene = "uid://cdm6ni4sfj1vx"
+zone_scene = "uid://xaof0slwolnw"
 spawn_node_name = "Spawnpoint"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ToMinigameLoc" index="0"]
