@@ -13,11 +13,11 @@ size = Vector3(1, 0.5, 0.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.285283, 0, 0, 0, 0.904853, 0, 0, 0, 0.494515, 0.00777626, 0.25, 0)
+transform = Transform3D(0.516048, 0, 0, 0, 1.0605, 0, 0, 0, 1.00565, 0.00777626, 0.25, 0)
 shape = SubResource("BoxShape3D_s7ybo")
 
 [node name="PersistentPocket6" parent="." instance=ExtResource("2_57vb8")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.00218366, 0.250629, 0.117258)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.00218366, 0.250629, 0.252724)
 pocket_id = "storage_slot_6"
 held_behavior = 0
 grab_distance = 0.1

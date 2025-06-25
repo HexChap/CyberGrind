@@ -28,6 +28,10 @@ Line3d="*res://addons/godot-polyliner/Line3D/Line3D.gd"
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 xr_controller=""
