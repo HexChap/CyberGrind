@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbphfepiv6n7i"]
+
+[ext_resource type="Shader" uid="uid://dcww3vbqewcry" path="res://game/zones/minigame/door.gdshader" id="1_khlls"]
+[ext_resource type="PackedScene" uid="uid://vm423o6hdlya" path="res://components/helpers/zone_switch_area.tscn" id="1_wed8s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cq368"]
+radius = 1.3027
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4on3h"]
+render_priority = 0
+shader = ExtResource("1_khlls")
+shader_parameter/albedo = Color(0.454539, 0.0340762, 0.397381, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_wpan1"]
+material = SubResource("ShaderMaterial_4on3h")
+radius = 1.0
+height = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8tmje"]
+radius = 1.0
+
+[node name="ZoneSwitchArea" instance=ExtResource("1_wed8s")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_cq368")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" index="0"]
+mesh = SubResource("SphereMesh_wpan1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+shape = SubResource("SphereShape3D_8tmje")
