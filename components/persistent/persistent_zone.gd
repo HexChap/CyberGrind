@@ -237,3 +237,11 @@ static func _get_held_persistent_item(pickup : XRToolsFunctionPickup) -> Persist
 
 	# Return the item
 	return item
+
+
+func _on_vr__staq_o_tzmeq_probvah_za_export_ready() -> void:
+	pass # Replace with function body.
+
+
+func _on_vr__staq_o_tzmeq_probvah_za_export_child_entered_tree(node: Node) -> void:
+	pass # Replace with function body.
