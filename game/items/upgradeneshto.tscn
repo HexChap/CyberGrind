@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dglmuxbji5y4u"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_diins"]
+[ext_resource type="Script" uid="uid://d016v3ebn6l42" path="res://addons/godot-xr-tools/objects/grab_points/grab_point.gd" id="2_wysfh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wysfh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wysfh"]
+
+[node name="PickableObject" instance=ExtResource("1_diins")]
+
+[node name="XRToolsGrabPoint" type="Marker3D" parent="." index="0"]
+gizmo_extents = 0.34
+script = ExtResource("2_wysfh")
+metadata/_custom_type_script = "uid://d016v3ebn6l42"
+
+[node name="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, -0.005, 0)
+shape = SubResource("BoxShape3D_wysfh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(0.355, 0, 0, 0, 0.355, 0, 0, 0, 0.355, 0, 0, 0)
+mesh = SubResource("BoxMesh_wysfh")
+
+[node name="Area3D" type="Area3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, -0.005, 0)
+shape = SubResource("BoxShape3D_wysfh")
