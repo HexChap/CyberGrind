@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjjhc31iki286"]
+
+[ext_resource type="Script" uid="uid://cwsrmgieiunf" path="res://game/items/minigames/analyse_inject/analyse_inject.gd" id="1_n0kki"]
+[ext_resource type="PackedScene" uid="uid://d2qp846qqmj8p" path="res://game/items/minigames/analyse_inject/vulnerability_anlysis/analysis_area.tscn" id="2_kh3mt"]
+
+[node name="AnalyseInject" type="Node3D"]
+script = ExtResource("1_n0kki")
+
+[node name="AnalysisArea" parent="." instance=ExtResource("2_kh3mt")]

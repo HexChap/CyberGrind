@@ -108,6 +108,7 @@ snap_require = "backpack"
 script = ExtResource("3_c4gvi")
 
 [node name="CollisionHandLeft" parent="XROrigin3D/LeftHand" index="0" instance=ExtResource("4_38kmp")]
+collision_mask = 537198623
 
 [node name="LeftHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="1" instance=ExtResource("5_2k6vw")]
 
@@ -159,6 +160,7 @@ scene_properties_keys = PackedStringArray("zone_wrist_ui.gd")
 script = ExtResource("3_c4gvi")
 
 [node name="CollisionHandRight" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("12_o3mdo")]
+collision_mask = 537198623
 
 [node name="RightHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("13_dr7jm")]
 
