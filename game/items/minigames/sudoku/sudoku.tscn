@@ -139,15 +139,15 @@ coord = {
 [node name="stack" type="Node3D" parent="."]
 
 [node name="SudokuStack" parent="stack" instance=ExtResource("6_vtcsp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83933, 0.292224, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92412, 0.384, 0.2)
 y_coord = 2
 
 [node name="SudokuStack2" parent="stack" instance=ExtResource("6_vtcsp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83933, 0.892224, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92412, 0.984, 0.2)
 y_coord = 1
 
 [node name="SudokuStack3" parent="stack" instance=ExtResource("6_vtcsp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83933, 1.49222, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92412, 1.584, 0.2)
 
 [node name="sudoku_timer" parent="." instance=ExtResource("7_1ltev")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.275, -1.555, 0.2)

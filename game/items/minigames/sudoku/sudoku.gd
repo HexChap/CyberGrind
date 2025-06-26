@@ -180,6 +180,8 @@ func _check_if_softlocked() -> bool:
 	var valid_count: int = 0;
 	for x in range(4):
 		for y in range(4):
+			if grid_stack.size() == 0:
+				return false
 			if grid[x][y] != ".":
 				continue
 			if _is_valid(grid, x, y, grid_stack[0]):
