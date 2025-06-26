@@ -3,6 +3,7 @@ class_name PersistentPocket
 extends XRToolsSnapZone
 signal item_added(item)
 
+var timer_node = preload("res://game/VRTimerGUI.gd")
 
 ## Persistent Pocket Node
 ##

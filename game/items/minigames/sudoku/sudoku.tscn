@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2ojgbyt0munx"]
+[gd_scene load_steps=10 format=3 uid="uid://c2ojgbyt0munx"]
 
 [ext_resource type="Script" uid="uid://de2ec2wvt3rfp" path="res://game/items/minigames/sudoku/sudoku.gd" id="1_skxa3"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_yxj4v"]
 [ext_resource type="PackedScene" uid="uid://bqm5aef0up60b" path="res://game/items/minigames/sudoku/sudoku_background.tscn" id="2_af2ja"]
 [ext_resource type="FontFile" uid="uid://b25m8i3cgcwqf" path="res://fonts/3270Condensed-Regular.ttf" id="3_oimqo"]
 [ext_resource type="PackedScene" uid="uid://ym8eac0qtvqd" path="res://game/items/minigames/sudoku/grid_space.tscn" id="4_1a4xh"]
+[ext_resource type="PackedScene" uid="uid://dt723ym58i848" path="res://game/items/minigames/sudoku/sudoku_stack.tscn" id="6_vtcsp"]
+[ext_resource type="PackedScene" uid="uid://qlkp3if37ucu" path="res://game/items/minigames/sudoku/sudoku_timer.tscn" id="7_1ltev"]
+[ext_resource type="PackedScene" uid="uid://cgdd5x47xkxv0" path="res://game/items/minigames/sudoku/sudoku_back.tscn" id="8_84rf8"]
+[ext_resource type="PackedScene" uid="uid://chkfepmrbybb2" path="res://game/items/minigames/sudoku/sudoku_score.tscn" id="9_hbb8m"]
 
 [node name="Sudoku" type="Node3D"]
 script = ExtResource("1_skxa3")
@@ -22,50 +26,138 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22844, -0.392212, 0.180089
 text = "3 million beers"
 font = ExtResource("3_oimqo")
 
-[node name="GridSpace" parent="." instance=ExtResource("4_1a4xh")]
+[node name="Grid" type="Node3D" parent="."]
+
+[node name="GridSpace" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.639595, 1.47804, 0.2)
 
-[node name="GridSpace2" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace2" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.360405, 1.47804, 0.2)
+coord = {
+"x": 1,
+"y": 0
+}
 
-[node name="GridSpace3" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace3" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36041, 1.47804, 0.2)
+coord = {
+"x": 2,
+"y": 0
+}
 
-[node name="GridSpace4" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace4" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36041, 1.47804, 0.2)
+coord = {
+"x": 3,
+"y": 0
+}
 
-[node name="GridSpace5" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace5" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.639595, 0.478043, 0.2)
+coord = {
+"x": 0,
+"y": 1
+}
 
-[node name="GridSpace6" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace6" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.360405, 0.478043, 0.2)
+coord = {
+"x": 1,
+"y": 1
+}
 
-[node name="GridSpace7" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace7" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36041, 0.478043, 0.2)
+coord = {
+"x": 2,
+"y": 1
+}
 
-[node name="GridSpace8" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace8" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36041, 0.478043, 0.2)
+coord = {
+"x": 3,
+"y": 1
+}
 
-[node name="GridSpace9" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace9" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.639595, -0.521957, 0.2)
+coord = {
+"x": 0,
+"y": 2
+}
 
-[node name="GridSpace10" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace10" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.360405, -0.521957, 0.2)
+coord = {
+"x": 1,
+"y": 2
+}
 
-[node name="GridSpace11" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace11" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36041, -0.521957, 0.2)
+coord = {
+"x": 2,
+"y": 2
+}
 
-[node name="GridSpace12" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace12" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36041, -0.521957, 0.2)
+coord = {
+"x": 3,
+"y": 2
+}
 
-[node name="GridSpace13" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace13" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.639595, -1.52196, 0.2)
+coord = {
+"x": 0,
+"y": 3
+}
 
-[node name="GridSpace14" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace14" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.360405, -1.52196, 0.2)
+coord = {
+"x": 1,
+"y": 3
+}
 
-[node name="GridSpace15" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace15" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36041, -1.52196, 0.2)
+coord = {
+"x": 2,
+"y": 3
+}
 
-[node name="GridSpace16" parent="." instance=ExtResource("4_1a4xh")]
+[node name="GridSpace16" parent="Grid" instance=ExtResource("4_1a4xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36041, -1.52196, 0.2)
+coord = {
+"x": 3,
+"y": 3
+}
+
+[node name="stack" type="Node3D" parent="."]
+
+[node name="SudokuStack" parent="stack" instance=ExtResource("6_vtcsp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83933, 0.292224, 0.2)
+y_coord = 2
+
+[node name="SudokuStack2" parent="stack" instance=ExtResource("6_vtcsp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83933, 0.892224, 0.2)
+y_coord = 1
+
+[node name="SudokuStack3" parent="stack" instance=ExtResource("6_vtcsp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83933, 1.49222, 0.2)
+
+[node name="sudoku_timer" parent="." instance=ExtResource("7_1ltev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.275, -1.555, 0.2)
+
+[node name="SudokuBack" parent="." instance=ExtResource("8_84rf8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, -0.9, 0.2)
+
+[node name="SudokuScore" parent="." instance=ExtResource("9_hbb8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97, -0.9, 0.2)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_GameTimer_timeout"]

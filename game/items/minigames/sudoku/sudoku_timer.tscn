@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://qlkp3if37ucu"]
+
+[ext_resource type="FontFile" uid="uid://28li0fdub82g" path="res://fonts/3270-Regular.ttf" id="1_nqmqa"]
+[ext_resource type="Script" uid="uid://bayfqkxq4yacj" path="res://game/items/minigames/sudoku/sudoku_timer.gd" id="1_y3hbg"]
+[ext_resource type="Script" uid="uid://by2m5q1rkh3go" path="res://game/items/minigames/sudoku/sudoku_timer_label.gd" id="2_rt42y"]
+
+[sub_resource type="Gradient" id="Gradient_xc5je"]
+colors = PackedColorArray(0, 0.536013, 0, 1, 0.401222, 0.682348, 0.266698, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nqmqa"]
+gradient = SubResource("Gradient_xc5je")
+width = 128
+fill_from = Vector2(0, 1)
+
+[node name="sudoku_timer" type="Node3D"]
+script = ExtResource("1_y3hbg")
+tilt_strength = 0.2
+max_tilt_angle_deg = 20.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("GradientTexture2D_nqmqa")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+text = "00:00"
+font = ExtResource("1_nqmqa")
+font_size = 64
+script = ExtResource("2_rt42y")

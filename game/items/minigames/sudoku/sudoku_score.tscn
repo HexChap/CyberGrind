@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://chkfepmrbybb2"]
+
+[ext_resource type="Script" uid="uid://clpxn54ppdbfi" path="res://game/items/minigames/sudoku/sudoku_score.gd" id="1_d3cr7"]
+[ext_resource type="FontFile" uid="uid://28li0fdub82g" path="res://fonts/3270-Regular.ttf" id="1_fd7dt"]
+[ext_resource type="Script" uid="uid://b71jbhktw8ets" path="res://game/items/minigames/sudoku/sudoku_score_label.gd" id="3_hrird"]
+
+[sub_resource type="Gradient" id="Gradient_d3cr7"]
+colors = PackedColorArray(0.895237, 0.305814, 0.638446, 1, 0.26768, 0.000743139, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hrird"]
+gradient = SubResource("Gradient_d3cr7")
+fill_from = Vector2(0.541284, 1)
+fill_to = Vector2(0.486239, 0.0229358)
+
+[node name="SudokuScore" type="Node3D"]
+script = ExtResource("1_d3cr7")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("GradientTexture2D_hrird")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+text = "00"
+font = ExtResource("1_fd7dt")
+font_size = 64
+outline_size = 0
+script = ExtResource("3_hrird")
