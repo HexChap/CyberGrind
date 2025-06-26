@@ -66,6 +66,11 @@ func play_sudoku(x: int, y: int) -> bool:
 	
 	grid[x][y] = grid_stack[0]
 	grid_stack.pop_front()
+	if _is_game_won():
+		end_game()
+		GameState.decrease_brain_strain()
+		game_over = false;
+	
 	if _check_if_softlocked() && rollbacks == 0:
 		end_game()
 		start_game(time, rollbacks, percent_empty)
@@ -164,7 +169,6 @@ func end_game() -> void:
 	time = 0;
 	score = 0;
 	rollbacks = 0;
-	game_over = true;
 	for x in range(4):
 		for y in range(4):
 			grid[x][y] = ".";

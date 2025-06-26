@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://crcra3lurcixa" path="res://fonts/3270SemiCondensed-Regular.ttf" id="1_o7ynx"]
 [ext_resource type="Script" uid="uid://bo6d6t0le0efg" path="res://game/items/minigames/sudoku/grid_space.gd" id="1_sala7"]
 [ext_resource type="Texture2D" uid="uid://d1kmsqfa2i2ta" path="res://assets/bgForSudokuIdk.png" id="2_1gej4"]
-[ext_resource type="Script" uid="uid://b68crhkynobtl" path="res://game/items/minigames/sudoku/grid_space_label.gd" id="3_2pl7m"]
+[ext_resource type="Script" path="res://game/items/minigames/sudoku/grid_space_label.gd" id="3_2pl7m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2pl7m"]
 size = Vector3(0.5, 0.5, 0.5)

@@ -19,6 +19,21 @@ enum GameDifficulty {
 	GAME_MAX
 }
 
+@export var brain_strain : int = 0;
+func increase_brain_strain() -> void:
+	brain_strain += 10
+func increase_brain_strain_exact(_brain_strain: int) -> void:
+	brain_strain += _brain_strain
+
+func decrease_brain_strain() -> void:
+	brain_strain -= 10
+func decrease_brain_strain_exact(_brain_strain: int) -> void:
+	brain_strain -= _brain_strain
+
+func reset_brain_strain() -> void:
+	brain_strain = 0
+func is_brain_overstrained() -> bool:
+	return brain_strain >= 100
 
 @export_group("Game Settings")
 

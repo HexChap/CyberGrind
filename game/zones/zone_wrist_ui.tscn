@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3bubdytjn523"]
+[gd_scene load_steps=6 format=3 uid="uid://b3bubdytjn523"]
 
 [ext_resource type="Script" uid="uid://c8q7bf4ewnmrl" path="res://game/zones/zone_wrist_ui.gd" id="1_3c68p"]
+[ext_resource type="Texture2D" uid="uid://dsmfb04lt618h" path="res://assets/1817982-200.png" id="2_0mf34"]
+[ext_resource type="FontFile" uid="uid://28li0fdub82g" path="res://fonts/3270-Regular.ttf" id="3_j14gn"]
+[ext_resource type="Script" uid="uid://88o4ly3phvki" path="res://game/zones/zone_wrist_menu_stress_label.gd" id="4_sjw2y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_db0nf"]
+font = ExtResource("3_j14gn")
+font_size = 40
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="ZoneWristMenu" type="PanelContainer"]
 offset_right = 400.0
@@ -19,10 +28,25 @@ layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "This display shows the wrist UI when playing the game. Customize this for your games content or theme."
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_0mf34")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(48, 20)
+layout_mode = 2
+text = "00"
+label_settings = SubResource("LabelSettings_db0nf")
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
+script = ExtResource("4_sjw2y")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
