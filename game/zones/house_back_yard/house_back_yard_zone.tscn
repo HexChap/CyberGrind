@@ -117,14 +117,8 @@ size = Vector3(1, 3, 0.2)
 [node name="HouseBackYard" instance=ExtResource("1_30op8")]
 zone_info = ExtResource("3_m4v83")
 
-[node name="Skeleton3D" parent="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand/Hand_Nails_low_L/Armature" index="0"]
-bones/1/rotation = Quaternion(0.323537, -2.56581e-05, -0.0272204, 0.945824)
-
 [node name="AnimationTree" parent="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand" index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_iacns")
-
-[node name="Skeleton3D" parent="XROrigin3D/RightHand/CollisionHandRight/RightHand/Hand_Nails_low_R/Armature" index="0"]
-bones/1/rotation = Quaternion(0.323537, 2.56581e-05, 0.0272204, 0.945824)
 
 [node name="AnimationTree" parent="XROrigin3D/RightHand/CollisionHandRight/RightHand" index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_msmlg")
