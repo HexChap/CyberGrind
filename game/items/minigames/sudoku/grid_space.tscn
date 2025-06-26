@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ym8eac0qtvqd"]
+[gd_scene load_steps=9 format=3 uid="uid://ym8eac0qtvqd"]
 
 [ext_resource type="FontFile" uid="uid://crcra3lurcixa" path="res://fonts/3270SemiCondensed-Regular.ttf" id="1_o7ynx"]
 [ext_resource type="Script" uid="uid://bo6d6t0le0efg" path="res://game/items/minigames/sudoku/grid_space.gd" id="1_sala7"]
@@ -8,7 +8,52 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_2pl7m"]
 size = Vector3(0.5, 0.5, 0.5)
 
+[sub_resource type="Animation" id="Animation_1gej4"]
+resource_name = "normal_trigger"
+length = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Sprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.172507, 0.296191, 0.424214, 0.49349),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.261799), Vector3(0, 0, -0.261799), Vector3(0, 0, 0.0893609), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5krid"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_541ac"]
+_data = {
+&"RESET": SubResource("Animation_5krid"),
+&"normal_trigger": SubResource("Animation_1gej4")
+}
+
 [node name="GridSpace" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_sala7")
 tilt_strength = 0.3
 max_tilt_angle_deg = 50.0
@@ -31,3 +76,11 @@ collision_mask = 8323327
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_2pl7m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_541ac")
+}
+playback_auto_capture_transition_type = 6
+playback_auto_capture_ease_type = 3
+speed_scale = 1.5

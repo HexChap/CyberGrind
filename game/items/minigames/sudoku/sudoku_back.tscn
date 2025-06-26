@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgdd5x47xkxv0"]
+[gd_scene load_steps=7 format=3 uid="uid://cgdd5x47xkxv0"]
 
 [ext_resource type="Script" uid="uid://jhdb70u2v0vy" path="res://game/items/minigames/sudoku/sudoku_back.gd" id="1_7ar1d"]
 [ext_resource type="FontFile" uid="uid://28li0fdub82g" path="res://fonts/3270-Regular.ttf" id="1_p4t8m"]
@@ -11,6 +11,8 @@ colors = PackedColorArray(0.872267, 0.184848, 0.212564, 1, 0.852161, 0.371622, 0
 gradient = SubResource("Gradient_7ar1d")
 fill_from = Vector2(0, 0.481651)
 fill_to = Vector2(1, 0.472477)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_psq2a"]
 
 [node name="SudokuBack" type="Node3D"]
 script = ExtResource("1_7ar1d")
@@ -36,3 +38,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.012, 0.1)
 text = "←"
 font_size = 64
 outline_size = 0
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8323327
+collision_mask = 8323327
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 0, 0, 0)
+shape = SubResource("BoxShape3D_psq2a")

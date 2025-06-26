@@ -12,17 +12,19 @@ extends Node3D
 
 func _ready():
 	add_to_group("SudokuRoot")
-	
+	var nz = [1, 2, 3]
+	print(nz.front())
+	print(nz.back())
 	game_timer.wait_time = 1.0
-	start_game(120, 3)
+	start_game(240, 3, 0.8)
 	
 
 
 func _process(delta):
 	pass
 
-func start_game(_time: int, _rollbacks: int) -> void:
-	_regenerate()
+func start_game(_time: int, _rollbacks: int, _percent_empty: float) -> void:
+	_regenerate(_percent_empty)
 	time = _time
 	rollbacks = _rollbacks
 	game_over = false;
@@ -36,7 +38,7 @@ func _on_GameTimer_timeout():
 	print("second")
 	if time <= 0:
 		game_timer.stop()
-		game_over = true
+		end_game()
 
 func remove_random_slots(percent: float, grid: Array) -> void:
 	var size := grid.size()
@@ -64,25 +66,42 @@ func play_sudoku(x: int, y: int) -> bool:
 	
 	grid[x][y] = grid_stack[0]
 	grid_stack.pop_front()
-	if _check_if_softlocked():
-		_regenerate()
+	if _check_if_softlocked() && rollbacks == 0:
+		end_game()
+		start_game(time, rollbacks, percent_empty)
 	
-	traceback.append([x, y, grid_stack[0]])
+	score += _calculate_base_score(x, y) 
+	traceback.push_front([x, y, grid[x][y]])
 	
 	print(grid_stack)
 	return true
 
 func backtrack() -> bool:
-	if rollbacks == 0:
+	if rollbacks == 0 or traceback.is_empty():
 		return false
-	if traceback.size() == 0:
-		return false
-	var last_operation: Array = traceback.front();
+
+	var last_op = traceback.front()
+	var x = last_op[0]
+	var y = last_op[1]
+	var placed_val = last_op[2]
+
+	grid[x][y] = "."
+	grid_stack.push_front(placed_val)
+
 	traceback.pop_front()
-	grid[last_operation[0]][last_operation[1]] = last_operation[2]
+
 	rollbacks -= 1
-	
+
 	return true
+
+func _calculate_base_score(x: int, y: int) -> int:
+	var raw_score: int = 0;
+	for _x in range(4):
+		raw_score += int(grid[_x][y])
+	for _y in range(4):
+		raw_score += int(grid[x][_y])
+	
+	return raw_score;
 
 func _generate_diagonal_arr() -> Array:
 	var size := 4
@@ -141,6 +160,18 @@ func _is_valid(board: Array, row: int, col: int, char: String) -> bool:
 	
 	return true
 
+func end_game() -> void:
+	time = 0;
+	score = 0;
+	rollbacks = 0;
+	game_over = true;
+	for x in range(4):
+		for y in range(4):
+			grid[x][y] = ".";
+	grid_stack.clear();
+	traceback.clear();
+	return
+
 func _check_if_softlocked() -> bool:
 	var valid_count: int = 0;
 	for x in range(4):
@@ -154,10 +185,19 @@ func _check_if_softlocked() -> bool:
 		return true
 	return false
 
-func _regenerate() -> void:
+func _regenerate(_percent_empty: float) -> void:
 	randomize()
 	var solved: bool = false;
 	while not solved:
 		grid = _generate_diagonal_arr()
 		solved = _solve(grid)
+	percent_empty = _percent_empty
 	remove_random_slots(percent_empty, grid)
+
+func _is_game_won() -> bool:
+	for x in range(4):
+		for y in range(4):
+			if grid[x][y] == ".":
+				return false
+	
+	return true

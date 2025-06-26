@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var area := $Area3D
+@onready var animation_player := $AnimationPlayer
 @export var coord := { "x": 0, "y": 0 } 
 @export var tilt_strength := 0.4 
 @export var max_tilt_angle_deg := 60.0  # Max angle to tilt toward camera
@@ -21,6 +22,7 @@ func _on_controller_grabbed(_xr_controller):
 	print("Played")
 	var sudoku_node = get_tree().get_nodes_in_group("SudokuRoot")[0]
 	sudoku_node.play_sudoku(coord.x, coord.y)
+	animation_player.play("normal_trigger")
 
 func _ready():
 	area.body_entered.connect(_on_body_entered)
